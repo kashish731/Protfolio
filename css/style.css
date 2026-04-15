@@ -9,7 +9,7 @@
     --card-bg-alt: #111827;
     --font-primary: 'Inter', sans-serif;
     --font-heading: 'Outfit', sans-serif;
-    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --transition: all 0.25s ease;
     --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     --shadow-hover: 0 20px 40px -15px rgba(0, 245, 255, 0.15);
 }
@@ -106,10 +106,7 @@ li {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 16px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 16px 0;
     background: rgba(10, 15, 28, 0.4);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -118,9 +115,15 @@ li {
     transition: var(--transition);
 }
 
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .navbar.scrolled {
     background: rgba(10, 15, 28, 0.85);
-    padding: 12px 24px;
+    padding: 12px 0;
     border-bottom-color: rgba(0, 245, 255, 0.1);
 }
 
@@ -231,11 +234,12 @@ li {
     height: 300px;
     border-radius: 50%;
     padding: 10px;
-    background: linear-gradient(135deg, rgba(0, 245, 255, 0.2), rgba(123, 44, 255, 0.2));
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--shadow-soft);
+    box-shadow: 0 10px 40px -15px rgba(0, 245, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .image-wrapper img {
@@ -243,7 +247,7 @@ li {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--card-bg);
+    border: 3px solid var(--card-bg);
 }
 
 /* Buttons */
@@ -260,6 +264,10 @@ li {
     transition: var(--transition);
     font-size: 0.95rem;
     display: inline-block;
+}
+
+.btn:active {
+    transform: scale(0.96);
 }
 
 .btn-primary {
@@ -370,7 +378,7 @@ li {
 
 .tag:hover {
     filter: brightness(1.2);
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.05);
     border-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -390,9 +398,14 @@ li {
     letter-spacing: 1px;
 }
 
+.project-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 20px 40px -15px rgba(0, 245, 255, 0.1);
+}
+
 .project-content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 12px;
+    font-size: 1.95rem;
+    margin-bottom: 15px;
 }
 
 .project-content ul li {
@@ -407,6 +420,18 @@ li {
     position: absolute;
     left: 0;
     color: var(--primary-color);
+}
+
+.project-links {
+    margin-top: 24px;
+    display: flex;
+    gap: 16px;
+}
+
+.btn-sm {
+    padding: 10px 24px;
+    font-size: 0.85rem;
+    border-radius: 8px;
 }
 
 /* Experience Improvement */
@@ -441,7 +466,13 @@ li {
     padding: 20px 24px;
     display: flex;
     align-items: center;
+    gap: 12px;
     font-weight: 500;
+}
+
+.list-item.card:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: rgba(0, 245, 255, 0.1);
 }
 
 /* Contact Rebuild */
@@ -457,6 +488,11 @@ li {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    cursor: pointer;
+}
+
+.contact-card:hover {
+    transform: translateY(-8px) scale(1.02);
 }
 
 .contact-icon {
@@ -593,11 +629,11 @@ footer p {
     }
 
     .navbar {
-        padding: 18px 60px;
+        padding: 18px 0;
     }
 
     .navbar.scrolled {
-        padding: 12px 60px;
+        padding: 12px 0;
     }
 
     .logo {
